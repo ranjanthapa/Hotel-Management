@@ -21,3 +21,6 @@ class RoomBookingAdminView(admin.ModelAdmin):
     list_display = ['user', 'room', 'check_in', 'check_out', 'booking_date', 'updated_date']
     search_fields = ['user__username']
     ordering = ['room']
+
+
+admin.site.register(RoomImage)
