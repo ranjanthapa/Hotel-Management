@@ -6,6 +6,19 @@ from .models import Room, RoomDetail, RoomBooking
 from .forms import RoomForm, RoomDetailForm, RoomBookingForm
 
 
+class AboutUsView(TemplateView):
+    template_name = 'room/about_us.html'
+
+class ContactUsView(TemplateView):
+    template_name = 'room/contact_us.html'
+    
+class EventsView(TemplateView):
+    template_name = 'room/events.html'
+    
+class ReservationView(TemplateView):
+    template_name = 'room/reservation.html'
+    
+    
 class HomeView(TemplateView):
     template_name = 'room/home.html'
     
