@@ -1,17 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Login</title>
+    <!-- Include your CSS file for styling -->
+    <link rel="stylesheet" href="{% static 'staff/css/styles.css' %}">
 </head>
 <body>
-    <h2>Staff Login</h2>
-    <form method="post" action="{% url 'staff_login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    {% if error_message %}
-        <p>{{ error_message }}</p>
-    {% endif %}
+    <div class="content">
+        <div class="login">
+            <img src="{% static 'staff/images/login-bg.png' %}" alt="login image" class="login__img">
+            <div class="login-container">
+                <h1>Staff Login</h1>
+                <!-- Display the staff login form with CSRF token -->
+                <form method="post" action="{% url 'staff_login' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
+                </form>
+                {% if error_message %}
+                    <p>{{ error_message }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Include the clock script -->
+        <script src="{% static 'staff/js/clock.js' %}"></script>
+    </div>
+    <!-- Include the footer template -->
+    <footer class="footer">
+        {% include 'staff/footer.html' %}
+    </footer>
 </body>
 </html>
