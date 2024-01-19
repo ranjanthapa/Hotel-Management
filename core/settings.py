@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hotel_management_db',
-        'USER': 'admin',
+        'USER': 'postgres',
         # 'PASSWORD': env('DATABASE_PASSWORD'),
-        'PASSWORD': 'admin',
+        'PASSWORD': 'admin123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 

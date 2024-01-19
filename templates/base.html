@@ -1,9 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+    <link rel="stylesheet" href="{% static "room/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "room/css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "room/css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "room/css/aos.css" %}">
+    <link rel="stylesheet" href="{% static "room/css/bootstrap-datepicker.css" %}">
+    <link rel="stylesheet" href="{% static "room/css/jquery.timepicker.css" %}">
+    <link rel="stylesheet" href="{% static "room/css/fancybox.min.css" %}">
+    <link rel="stylesheet" href="{% static "room/fonts/ionicons/css/ionicons.min.css" %}">
+    <link rel="stylesheet" href="{% static "room/fonts/fontawesome/css/font-awesome.min.css" %}">
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{% static "room/css/style.css" %}">
 
-{% include "header.html" %}
+</head>
+<body>
+    {% include "includes/header.html" %}
 
+    {% block main-content %}
+    {% endblock main-content %}
 
-{% block main-content %}{% endblock main-content %}
+    {% include "includes/footer.html" %}
 
-
-
-{% include "footer.html" %}
+<script src="{% static "room/js/jquery-3.3.1.min.js" %}"></script>
+<script src="{% static "room/js/jquery-migrate-3.0.1.min.js" %}"></script>
+<script src="{% static "room/js/popper.min.js" %}"></script>
+<script src="{% static "room/js/bootstrap.min.js" %}"></script>
+<script src="{% static "room/js/owl.carousel.min.js" %}"></script>
+<script src="{% static "room/js/jquery.stellar.min.js" %}"></script>
+<script src="{% static "room/js/jquery.fancybox.min.js" %}"></script>
+<script src="{% static "room/js/aos.js" %}"></script>
+<script src="{% static "room/js/bootstrap-datepicker.js" %}"></script>
+<script src="{% static "room/js/jquery.timepicker.min.js" %}"></script>
+<script src="{% static "room/js/main.js" %}"></script>
+</body>
+</html>
