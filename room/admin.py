@@ -24,10 +24,5 @@ class RoomBookingAdminView(admin.ModelAdmin):
 
 
 admin.site.register(RoomImage)
-admin.site.register(ContactUs)
-admin.site.register(Goal)
-admin.site.register(ReviewAndRating)
-admin.site.register(AboutUs)
-admin.site.register(MenuCategory)
-admin.site.register(MenuList)
+
 
