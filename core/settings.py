@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'room'
+    'room',
+    "phonenumber_field"
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hotel_management_db',
         'USER': 'postgres',
-        # 'PASSWORD': env('DATABASE_PASSWORD'),
-        'PASSWORD': 'admin123',
+        'PASSWORD': env('DATABASE_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -124,7 +124,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'  # Add the project-level static directory
 ]
 
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -132,3 +131,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = env('HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

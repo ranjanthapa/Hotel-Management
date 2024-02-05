@@ -1,0 +1,2 @@
+class InvalidDateSelection(Exception):
+    pass
