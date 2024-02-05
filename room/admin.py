@@ -16,7 +16,7 @@ class RoomDetailAdminView(admin.ModelAdmin):
     search_fields = ['room_type', 'price']
 
 
-@admin.register(RoomBooking)
+@admin.register(Reservation)
 class RoomBookingAdminView(admin.ModelAdmin):
     list_display = ['user', 'room', 'check_in', 'check_out', 'booking_date', 'updated_date']
     search_fields = ['user__username']
@@ -24,5 +24,6 @@ class RoomBookingAdminView(admin.ModelAdmin):
 
 
 admin.site.register(RoomImage)
+admin.site.register(Offers)
 
 

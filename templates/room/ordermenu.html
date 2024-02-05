@@ -13,7 +13,7 @@
       <div class="food-menu-tabs" data-aos="fade">
         <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active letter-spacing-2" id="mains-tab" data-toggle="tab" href="#mains" role="tab" aria-controls="mains" aria-selected="true">Mains</a>
+            <a class="nav-link active letter-spacing-2" id="mains-tab" data-toggle="tab" href="#mains" role="tab" aria-controls="mains" aria-selected="true">Foods</a>
           </li>
           <li class="nav-item">
             <a class="nav-link letter-spacing-2" id="desserts-tab" data-toggle="tab" href="#desserts" role="tab" aria-controls="desserts" aria-selected="false">Desserts</a>
@@ -29,38 +29,29 @@
             <div class="row">
                 
               <div class="col-md-6">
-                {% if menu_items %}
-                {% for item in menu_items %}
-                {% for category in item.category.all %}
-                {% if category.name == 'Main' %}
+                {% if food_menu %}
+                {% for item in food_menu %}
                 <div class="food-menu mb-5">
                   <span class="d-block text-primary h4 mb-3">${{item.price}} </span>
                   <h3 class="text-white"><a href="#" class="text-white">{{item.name}}</a></h3>
                   <p class="text-white text-opacity-7">{{item.description}}</p>
                 </div>
+                {% endfor %}
+                {% endif %}
                 
-                {% endif %}
-                {% endfor %}
-                {% endfor %}
-                {% endif %}
             </div>
           </div> <!-- .tab-pane -->
 
           <div class="tab-pane fade text-left" id="desserts" role="tabpanel" aria-labelledby="desserts-tab">
             <div class="row">
               <div class="col-md-6">
-                {% if menu_items %}
-                {% for item in menu_items %}
-                {% for category in item.category.all %}
-                {% if category.name == 'Desserts' %}
+                {% if desserts_menu %}
+                {% for item in desserts_menu %}
                 <div class="food-menu mb-5">
                   <span class="d-block text-primary h4 mb-3">${{item.price}} </span>
                   <h3 class="text-white"><a href="#" class="text-white">{{item.name}}</a></h3>
                   <p class="text-white text-opacity-7">{{item.description}}</p>
                 </div>
-                
-                {% endif %}
-                {% endfor %}
                 {% endfor %}
                 {% endif %}
             </div>
@@ -68,18 +59,13 @@
           <div class="tab-pane fade text-left" id="drinks" role="tabpanel" aria-labelledby="drinks-tab">
             <div class="row">
               <div class="col-md-6">
-                {% if menu_items %}
-                {% for item in menu_items %}
-                {% for category in item.category.all %}
-                {% if category.name == 'Drinks' %}
+                {% if drinks_menu %}
+                {% for item in drinks_menu %}
                 <div class="food-menu mb-5">
                   <span class="d-block text-primary h4 mb-3">${{item.price}} </span>
                   <h3 class="text-white"><a href="#" class="text-white">{{item.name}}</a></h3>
                   <p class="text-white text-opacity-7">{{item.description}}</p>
                 </div>
-                
-                {% endif %}
-                {% endfor %}
                 {% endfor %}
                 {% endif %}
                 

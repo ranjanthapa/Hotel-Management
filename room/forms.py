@@ -1,5 +1,5 @@
 from django import forms
-from .models import Room, RoomDetail, RoomBooking
+from .models import Room, RoomDetail, Reservation
 
 
 class RoomForm(forms.ModelForm):
@@ -13,7 +13,7 @@ class RoomDetailForm(forms.ModelForm):
         fields = ['room', 'price', 'room_type', 'bed_type', 'availability', 'status', 'amenities']
         # widgets = 
 
-class RoomBookingForm(forms.ModelForm):
+class ReservationForm(forms.ModelForm):
     class Meta:
-        model = RoomBooking
+        model = Reservation
         fields = ['adults', 'children', 'check_in', 'check_out']

@@ -3,6 +3,7 @@ from django.db import models
 
 
 
+
 class Room(models.Model):
     room_no = models.PositiveIntegerField(unique=True)
 
@@ -31,7 +32,7 @@ BED_TYPE = [
 
 
 class RoomImage(models.Model):
-    room = models.OneToOneField(Room, on_delete=models.CASCADE)
+    room = models.OneToOneField(Room, on_delete=models.CASCADE, related_name='room_image')
     image1 = models.ImageField(upload_to='images/room_image')
     image2 = models.ImageField(upload_to='images/room_image')
     image3 = models.ImageField(upload_to='images/room_image')
@@ -43,7 +44,7 @@ class RoomImage(models.Model):
 
 
 class RoomDetail(models.Model):
-    room = models.OneToOneField(Room, on_delete=models.CASCADE)
+    room = models.OneToOneField(Room, on_delete=models.CASCADE, related_name='room_detail')
     image = models.ForeignKey(RoomImage, on_delete=models.PROTECT, null=True, blank=True)
     price = models.PositiveIntegerField()
     room_type = models.CharField(max_length=30, choices=ROOM_TYPE)
@@ -53,7 +54,7 @@ class RoomDetail(models.Model):
     amenities = models.TextField()
 
 
-class RoomBooking(models.Model):
+class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     room = models.OneToOneField(Room, on_delete=models.CASCADE, null=True, blank=True)
     adults = models.PositiveIntegerField(default=1)
@@ -64,9 +65,13 @@ class RoomBooking(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
 
 
-
-#########################################################################################################
-
-
+class Offers(models.Model):
+    room = models.OneToOneField(RoomDetail, on_delete=models.CASCADE, related_name='room_offer')
+    discount = models.PositiveIntegerField()
+    offer_start = models.DateField()
+    offer_end = models.DateField()
+    description = models.TextField()
     
-
+    def __str__(self):
+        return f'Room Number: {self.room}'
+#########################################################################################################

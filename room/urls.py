@@ -12,4 +12,5 @@ urlpatterns = [
     path('rooms/', views.RoomListView.as_view(), name='rooms'),
     path('roomdetail/<int:id>/', views.RoomDetailView.as_view(), name='roomdetail'),
     path('bookroom/', views.RoomBookView.as_view(), name='bookroom'),
+    path('check-availability/', views.CheckAvailability.as_view(), name='check-availability')
 ]

@@ -6,7 +6,7 @@ Home Page
 
 {% block main-content %}
 
-<section class="site-hero overlay" style="background-image: url({% static "room/images/hero_4.jpg" %})" data-stellar-background-ratio="0.5">
+<section class="site-hero overlay" style="background-image: url({{banners.image1.url}})" data-stellar-background-ratio="0.5">
     <div class="container">
       <div class="row site-hero-inner justify-content-center align-items-center">
         <div class="col-md-10 text-center" data-aos="fade-up">
@@ -27,62 +27,7 @@ Home Page
 <section class="section bg-light pb-0"  >
     <div class="container">
      
-      <div class="row check-availabilty" id="next">
-        <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-
-          <form action="#">
-            <div class="row">
-              <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
-                <div class="field-icon-wrap">
-                  <div class="icon"><span class="icon-calendar"></span></div>
-                  <input type="text" id="checkin_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
-                <div class="field-icon-wrap">
-                  <div class="icon"><span class="icon-calendar"></span></div>
-                  <input type="text" id="checkout_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
-                <div class="row">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label for="adults" class="font-weight-bold text-black">Adults</label>
-                    <div class="field-icon-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="adults" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4+</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label for="children" class="font-weight-bold text-black">Children</label>
-                    <div class="field-icon-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="children" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4+</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 align-self-end">
-                <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-
-      </div>
+      {% include "room/check_availability.html" %}
     </div>
   </section>
 
@@ -93,7 +38,7 @@ Home Page
           <figure class="img-absolute">
             <img src="{% static "room/images/food-1.jpg" %}" alt="Image" class="img-fluid">
           </figure>
-          <img src="{% static "room/images/img_1.jpg" %}" alt="Image" class="img-fluid rounded">
+          <img src="{{banners.image3.url}}" alt="Image" class="img-fluid rounded">
         </div>
         <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
           <h2 class="heading">Welcome!</h2>
@@ -117,11 +62,11 @@ Home Page
         <div class="col-md-6 col-lg-4" data-aos="fade-up">
           <a href="#" class="room">
             <figure class="img-wrap">
-              <img src="{% static "room/images/img_1.jpg" %}" alt="Free website template" class="img-fluid mb-3">
+              <img src="{{ single_room.image.image1.url }}" alt="Free website template" class="img-fluid mb-3">
             </figure>
             <div class="p-3 text-center room-info">
               <h2>Single Room</h2>
-              <span class="text-uppercase letter-spacing-1">90$ / per night</span>
+              <span class="text-uppercase letter-spacing-1">RS. {{ single_room.price }} / per night</span>
             </div>
           </a>
         </div>
@@ -129,11 +74,11 @@ Home Page
         <div class="col-md-6 col-lg-4" data-aos="fade-up">
           <a href="#" class="room">
             <figure class="img-wrap">
-              <img src="{% static "room/images/img_2.jpg" %}" alt="Free website template" class="img-fluid mb-3">
+              <img src="{{ family_room.image.image1.url }}" alt="Free website template" class="img-fluid mb-3">
             </figure>
             <div class="p-3 text-center room-info">
               <h2>Family Room</h2>
-              <span class="text-uppercase letter-spacing-1">120$ / per night</span>
+              <span class="text-uppercase letter-spacing-1">RS. {{ family_room.price }} / per night</span>
             </div>
           </a>
         </div>
@@ -141,11 +86,11 @@ Home Page
         <div class="col-md-6 col-lg-4" data-aos="fade-up">
           <a href="#" class="room">
             <figure class="img-wrap">
-              <img src="{% static "room/images/img_3.jpg" %}" alt="Free website template" class="img-fluid mb-3">
+              <img src="{{ president_room.image.image1.url }}" alt="Free website template" class="img-fluid mb-3">
             </figure>
             <div class="p-3 text-center room-info">
-              <h2>Presidential Room</h2>
-              <span class="text-uppercase letter-spacing-1">250$ / per night</span>
+              <h2>President Room</h2>
+              <span class="text-uppercase letter-spacing-1">RS. {{president_room.price}} / per night</span>
             </div>
           </a>
         </div>
@@ -168,25 +113,25 @@ Home Page
         <div class="col-md-12">
           <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
             <div class="slider-item">
-              <a href="{% static "room/images/slider-1.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-1.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image1.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image1.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-2.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-2.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image2.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{ banners.image2.url }}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-3.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-3.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{ banners.image3.url }}" data-fancybox="images" data-caption="Caption for this image"><img src="{{ banners.image3.url }}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-4.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-4.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image4.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image4.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-5.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-5.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image5.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image5.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-6.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-6.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image6.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image6.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-7.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-7.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image7.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image7.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
           </div>
           <!-- END slider -->
@@ -209,71 +154,21 @@ Home Page
       </div>
       <div class="row">
         <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-          
+          {% if reviews %}
+          {% for review in reviews %}
           <div class="testimonial text-center slider-item">
             <div class="author-image mb-3">
-              <img src="{% static "room/images/person_1.jpg" %}" alt="Image placeholder" class="rounded-circle mx-auto">
+              <img src="{{review.user.profile_pic.url}}" alt="Image placeholder" class="rounded-circle mx-auto">
             </div>
             <blockquote>
 
-              <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
+              <p>&ldquo;{{review.review}}.&rdquo;</p>
             </blockquote>
-            <p><em>&mdash; Jean Smith</em></p>
+            <p><em>&mdash; {{review.user.first_name}}</em></p>
           </div> 
+          {% endfor %}
+          {% endif %}
 
-          <div class="testimonial text-center slider-item">
-            <div class="author-image mb-3">
-              <img src="{% static "room/images/person_2.jpg" %}" alt="Image placeholder" class="rounded-circle mx-auto">
-            </div>
-            <blockquote>
-              <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-            </blockquote>
-            <p><em>&mdash; John Doe</em></p>
-          </div>
-
-          <div class="testimonial text-center slider-item">
-            <div class="author-image mb-3">
-              <img src="{% static "room/images/person_3.jpg" %}" alt="Image placeholder" class="rounded-circle mx-auto">
-            </div>
-            <blockquote>
-
-              <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
-            </blockquote>
-            <p><em>&mdash; John Doe</em></p>
-          </div>
-
-
-          <div class="testimonial text-center slider-item">
-            <div class="author-image mb-3">
-              <img src="{% static "room/images/person_1.jpg" %}" alt="Image placeholder" class="rounded-circle mx-auto">
-            </div>
-            <blockquote>
-
-              <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
-            </blockquote>
-            <p><em>&mdash; Jean Smith</em></p>
-          </div> 
-
-          <div class="testimonial text-center slider-item">
-            <div class="author-image mb-3">
-              <img src="{% static "room/images/person_2.jpg" %}" alt="Image placeholder" class="rounded-circle mx-auto">
-            </div>
-            <blockquote>
-              <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-            </blockquote>
-            <p><em>&mdash; John Doe</em></p>
-          </div>
-
-          <div class="testimonial text-center slider-item">
-            <div class="author-image mb-3">
-              <img src="{% static "room/images/person_3.jpg" %}" alt="Image placeholder" class="rounded-circle mx-auto">
-            </div>
-            <blockquote>
-
-              <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
-            </blockquote>
-            <p><em>&mdash; John Doe</em></p>
-          </div>
 
         </div>
           <!-- END slider -->
@@ -292,38 +187,22 @@ Home Page
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
+        {% if events %}
+        {% for event in events %}
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="{{forloop.counter}}*100">
 
           <div class="media media-custom d-block mb-4 h-100">
-            <a href="#" class="mb-4 d-block"><img src="{% static "room/images/img_1.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+            <a href="#" class="mb-4 d-block"><img src="{{ event.event_image.url }}" alt="Image placeholder" class="img-fluid"></a>
             <div class="media-body">
-              <span class="meta-post">February 26, 2018</span>
-              <h2 class="mt-0 mb-3"><a href="#">Travel Hacks to Make Your Flight More Comfortable</a></h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <span class="meta-post">{{event.event_date}} {{event.event_time}} </span>
+              <h2 class="mt-0 mb-3"><a href="#">{{event.event_name}}</a></h2>
+              <p>{{event.event_description}}</p>
             </div>
           </div>
 
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
-          <div class="media media-custom d-block mb-4 h-100">
-            <a href="#" class="mb-4 d-block"><img src="{% static "room/images/img_2.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
-            <div class="media-body">
-              <span class="meta-post">February 26, 2018</span>
-              <h2 class="mt-0 mb-3"><a href="#">5 Job Types That Aallow You To Earn As You Travel The World</a></h2>
-              <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
-          <div class="media media-custom d-block mb-4 h-100">
-            <a href="#" class="mb-4 d-block"><img src="{% static "room/images/img_3.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
-            <div class="media-body">
-              <span class="meta-post">February 26, 2018</span>
-              <h2 class="mt-0 mb-3"><a href="#">30 Great Ideas On Gifts For Travelers</a></h2>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. t is a paradisematic country, in which roasted parts of sentences.</p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
+          {% endif %}
       </div>
     </div>
   </section>

@@ -3,6 +3,15 @@ from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 
 
+class HotelBanner(models.Model):
+    image1 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+    image2 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+    image3 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+    image4 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+    image5 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+    image6 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+    image7 = models.ImageField(upload_to='images/hotel_banner', blank=True, null=True)
+
 class ContactUs(models.Model):
     email = models.EmailField(max_length=100)
     name = models.CharField(max_length=100)
@@ -70,3 +79,31 @@ class MenuImage(models.Model):
     image = models.ImageField(upload_to='menu_image/')
     caption = models.CharField(max_length=1000)
     
+    
+class HotelData(models.Model):
+    hotel_name = models.CharField(max_length=100)
+    hotel_address = models.CharField(max_length=100)
+    hotel_phone = models.CharField(max_length=100)
+    hotel_email = models.EmailField(max_length=100)
+    hotel_website = models.URLField(max_length=100)
+    hotel_description = models.TextField()
+    hotel_image = models.ImageField(upload_to='hotel_image/')
+    
+    class Meta:
+        verbose_name_plural = 'Hotel Data'
+    
+    def __str__(self):
+        return self.hotel_name
+    
+class Events(models.Model):
+    event_name = models.CharField(max_length=100)
+    event_date = models.DateField()
+    event_time = models.TimeField()
+    event_description = models.TextField()
+    event_image = models.ImageField(upload_to='event_image/')
+    
+    class Meta:
+        verbose_name_plural = 'Events'
+    
+    def __str__(self):
+        return self.event_name

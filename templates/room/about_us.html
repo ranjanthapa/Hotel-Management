@@ -6,7 +6,7 @@
 {% block main-content %}
 
 
-<section class="site-hero inner-page overlay" style="background-image: url({% static "room/images/hero_4.jpg" %})" data-stellar-background-ratio="0.5">
+<section class="site-hero inner-page overlay" style="background-image: url({{ banners.image1.url }})" data-stellar-background-ratio="0.5">
     <div class="container">
       <div class="row site-hero-inner justify-content-center align-items-center">
         <div class="col-md-10 text-center" data-aos="fade">
@@ -146,25 +146,25 @@
         <div class="col-md-12">
           <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
             <div class="slider-item">
-              <a href="{% static "room/images/slider-1.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-1.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image1.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image1.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-2.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-2.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image2.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image2.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-3.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-3.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image3.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image3.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-4.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-4.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image4.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image4.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-5.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-5.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image5.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image5.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-6.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-6.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image6.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image6.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
             <div class="slider-item">
-              <a href="{% static "room/images/slider-7.jpg" %}" data-fancybox="images" data-caption="Caption for this image"><img src="{% static "room/images/slider-7.jpg" %}" alt="Image placeholder" class="img-fluid"></a>
+              <a href="{{banners.image7.url}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{banners.image7.url}}" alt="Image placeholder" class="img-fluid"></a>
             </div>
           </div>
           <!-- END slider -->
