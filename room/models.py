@@ -1,5 +1,6 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.db import models
+from account.models import Account
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -64,7 +65,7 @@ class RoomDetail(BaseRoomChoices):
 
 
 class Reservation(BaseRoomChoices):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone_number = PhoneNumberField()

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.sites.shortcuts import get_current_site
+from django.core.exceptions import ValidationError
 from django.core.mail import EmailMessage
 from django.db.models import QuerySet
 from django.shortcuts import render, redirect
@@ -34,23 +35,23 @@ class EventsView(TemplateView):
     template_name = 'room/events.html'
 
 
-class ReservationView(FormView, SuccessMessageMixin):
+class ReservationView(FormView):
     """performs the room reservation"""
     form_class = ReservationForm
     template_name = 'room/reservation.html'
     success_url = reverse_lazy('room:reservation')
 
-
     def form_valid(self, form):
+        print("form valid method")
         try:
-            print(f"requesttttttttttttt {form.cleaned_data.get('request')}")
-            print("about to send the email")
             room = self.room_selection(new_check_in=form.cleaned_data['check_in'])
             print(room)
-
             if room is not None:
                 messages.success(self.request, "An confirmation email has been sent to you")
                 ReservationView.send_email(form.cleaned_data)
+            else:
+                messages.add_message(self.request, "Room not available")
+                return super().form_valid(form)
 
         except InvalidDateSelection:
             print("handles the exception")
@@ -66,15 +67,15 @@ class ReservationView(FormView, SuccessMessageMixin):
         print("Send method")
         name = valid_data.get('name')
         email = valid_data.get('email')
-        # request = HttpRequest()
-        # current_site = get_current_site(request)
+        request = HttpRequest()
+        current_site = get_current_site(request)
 
         file_path = 'account/email_verification.html'
         print(name, email)
         body = render_to_string(file_path, {
             'name': name,
-            # 'uid': urlsafe_base64_encode(force_bytes()),
-            # 'domain': current_site,
+            'uid': "123",
+            'domain': current_site,
             'payment_url': "https://www.instagram.com",
             "confirm_url": "https://www.facebook.com"
         })
@@ -94,18 +95,24 @@ class ReservationView(FormView, SuccessMessageMixin):
         return context
 
     @staticmethod
-    def is_in_range(self, room_check_in: date, room_check_out: date, new_check_in: date) -> bool:
-        """checks the room is available or not in specific date"""
+    def is_in_range(room_check_in: date, room_check_out: date, new_check_in: date) -> bool:
+        """checks if the room is available or not on a specific date"""
         if not room_check_in <= new_check_in <= room_check_out:
             return True
+        # return False
 
     @staticmethod
     def room_selection(new_check_in: date) -> dict[str, Any]:
         """select the available room"""
+        print('inside of room_selection method')
         room_details: QuerySet = RoomDetail.objects.values('room', 'check_in', 'check_out').all()
+        print(room_details)
         for detail in room_details:
+            if detail['check_in'] or detail['check_out'] is None:
+                return detail
+
             if ReservationView.is_in_range(room_check_in=detail['check_in'], room_check_out=detail['check_out'],
-                                new_check_in=new_check_in):
+                                           new_check_in=new_check_in):
                 print(detail)
                 return detail
 

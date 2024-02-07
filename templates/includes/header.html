@@ -1,40 +1,44 @@
 {% load static %}
-    <header class="site-header js-site-header">
-      <div class="container-fluid">
+<header class="site-header js-site-header">
+    <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Sogo Hotel</a></div>
-          <div class="col-6 col-lg-8">
+            <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="{% url 'room:home' %}">Sogo Hotel</a></div>
+            <div class="col-6 col-lg-8">
 
 
-            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <!-- END menu-toggle -->
-
-            <div class="site-navbar js-site-navbar">
-              <nav role="navigation">
-                <div class="container">
-                  <div class="row full-height align-items-center">
-                    <div class="col-md-6 mx-auto">
-                      <ul class="list-unstyled menu">
-                        <li class="active"><a href="{% url "room:home" %}">Home</a></li>
-                        <li><a href="{% url "room:rooms" %}">Rooms</a></li>
-                        <li><a href="{% url "room:aboutus" %}">About</a></li>
-                        <li><a href="{% url "room:events" %}">Events</a></li>
-                        <li><a href="{% url "room:contactus" %}">Contact</a></li>
-                        <li><a href="{% url "room:reservation" %}">Reservation</a></li>
-                        <li><a href="{% url "room:reservation" %}">Login</a></li>
-                        <li><a href="{% url "room:reservation" %}">Registration</a></li>
-                        <li><a href="{% url "room:reservation" %}">Logout</a></li>
-                      </ul>
-                    </div>
-                  </div>
+                <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-              </nav>
+                <!-- END menu-toggle -->
+
+                <div class="site-navbar js-site-navbar">
+                    <nav role="navigation">
+                        <div class="container">
+                            <div class="row full-height align-items-center">
+                                <div class="col-md-6 mx-auto">
+                                    <ul class="list-unstyled menu">
+                                        <li class="active"><a href="{% url "room:home" %}">Home</a></li>
+                                        <li><a href="{% url "room:rooms" %}">Rooms</a></li>
+                                        <li><a href="{% url "room:aboutus" %}">About</a></li>
+                                        <li><a href="{% url "room:events" %}">Events</a></li>
+                                        <li><a href="{% url "room:contactus" %}">Contact</a></li>
+                                        <li><a href="{% url "room:reservation" %}">Reservation</a></li>
+                                        {% if not user.is_authenticated %}
+
+                                            <li><a href="{% url "account:login" %}">Login</a></li>
+                                            <li><a href="{% url "account:register" %}">Registration</a></li>
+                                        {% else %}
+                                            <li><a href="{% url "account:logout" %}">Logout</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </header>
+    </div>
+</header>
