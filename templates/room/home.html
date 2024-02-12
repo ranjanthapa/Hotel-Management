@@ -195,8 +195,8 @@ Home Page
             <a href="#" class="mb-4 d-block"><img src="{{ event.event_image.url }}" alt="Image placeholder" class="img-fluid"></a>
             <div class="media-body">
               <span class="meta-post">{{event.event_date}} {{event.event_time}} </span>
-              <h2 class="mt-0 mb-3"><a href="#">{{event.event_name}}</a></h2>
-              <p>{{event.event_description}}</p>
+              <h2 class="mt-0 mb-3"><a href="#">{{event.event_name|safe}}</a></h2>
+              <p>{{event.event_description|safe}}</p>
             </div>
           </div>
 

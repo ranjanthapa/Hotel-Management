@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 
 class HotelBanner(models.Model):
@@ -99,7 +100,7 @@ class Events(models.Model):
     event_name = models.CharField(max_length=100)
     event_date = models.DateField()
     event_time = models.TimeField()
-    event_description = models.TextField()
+    event_description = HTMLField()
     event_image = models.ImageField(upload_to='event_image/')
     
     class Meta:

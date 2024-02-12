@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'tinymce',
     'room',
     'hotel',
 ]
@@ -148,3 +149,20 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.0.101",
     
 ]
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': 900,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'plugins': 'colorpicker autolink lists link image charmap print preview anchor',
+    'toolbar': 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor | removeformat | charmap link image',
+    'toolbar_sticky': True,
+    'toolbar_mode': 'sliding',
+    'menubar': True,
+    'statusbar': True,
+    'resize': 'both',
+    'content_style': 'body { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.6; }',
+    # 'theme': 'modern',
+}
