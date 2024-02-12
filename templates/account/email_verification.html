@@ -2,7 +2,7 @@
     Dear {{ name }},
     Thank you for choosing our service, Please confirm your booking either prepaid or confirmation.
     confirmation link: http://{{ domain }}{% url 'room:room_confirmation' uidb64=uid res_uidb64=reservation_uid%}
-    payment link: http://{{ domain }}{% url 'payment:pay' %}
+    payment link: http://{{ domain }}{% url 'payment:create-checkout-session' room_uid=uid reservation_uid=reservation_uid %}
     Thank you!
 
 {% endautoescape %}

@@ -29,7 +29,7 @@ admin.site.register(RoomImage)
 
 @admin.register(BookingConfirmation)
 class BookingConfirmationAdmin(admin.ModelAdmin):
-    list_display = ['get_full_name', 'get_email']
+    list_display = ['get_full_name', 'get_email', 'payment']
     search_fields = ['reservation__user__first_name', 'reservation__phone_number', 'reservation__user__email__iexact']
 
     def get_email(self, obj: BookingConfirmation) -> str:

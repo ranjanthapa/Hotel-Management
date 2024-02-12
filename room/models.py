@@ -96,3 +96,4 @@ class Reservation(BaseRoomChoices):
 class BookingConfirmation(models.Model):
     reservation = models.ForeignKey(Reservation,on_delete=models.CASCADE, null=True, blank=True)
     room = models.ManyToManyField(Room, null=True, blank=True)
+    payment = models.BooleanField(default=False)

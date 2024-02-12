@@ -23,7 +23,7 @@ class SigInView(LoginView):
         user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('room:home')
+            return redirect('hotel:home')
         else:
             messages.error(request, 'Wrong credential')
             return render(request, 'account/login.html')
@@ -56,6 +56,6 @@ class UserRegistrationView(SuccessMessageMixin, CreateView):
 
 def sign_out(request):
     auth.logout(request)
-    return redirect("room:home")
+    return redirect("hotel:home")
 
 

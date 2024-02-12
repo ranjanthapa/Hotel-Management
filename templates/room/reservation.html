@@ -89,7 +89,8 @@
 
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <label for="{{ form.adults.id_for_label }}" class="font-weight-bold text-black">Adults</label>
+                                <label for="{{ form.adults.id_for_label }}"
+                                       class="font-weight-bold text-black">Adults</label>
                                 <div class="field-icon-wrap">
                                     {{ form.adults }}
                                 </div>
@@ -104,12 +105,14 @@
 
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <label for="{{ form.room_type.id_for_label }}" class="font-weight-bold text-black">Room Type</label>
+                                <label for="{{ form.room_type.id_for_label }}" class="font-weight-bold text-black">Room
+                                    Type</label>
                                 {{ form.room_type }}
                             </div>
 
                             <div class="col-md-6 form-group">
-                                <label for="{{ form.bed_type.id_for_label }}" class="font-weight-bold text-black">Bed Type</label>
+                                <label for="{{ form.bed_type.id_for_label }}" class="font-weight-bold text-black">Bed
+                                    Type</label>
                                 {{ form.bed_type }}
                             </div>
                         </div>
@@ -128,16 +131,17 @@
                                        class="btn btn-primary text-white py-3 px-5 font-weight-bold">
                             </div>
                         </div>
+
                     </form>
 
                 </div>
                 <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
                     <div class="row">
                         <div class="col-md-10 ml-auto contact-info">
-                            <p><span class="d-block">Address:</span> <span class="text-black"> 98 West 21th Street, Suite 721 New York NY 10016</span>
+                            <p><span class="d-block">Address:</span> <span class="text-black"> {{ hotel_contact_info.address }}</span>
                             </p>
-                            <p><span class="d-block">Phone:</span> <span class="text-black"> (+1) 435 3533</span></p>
-                            <p><span class="d-block">Email:</span> <span class="text-black"> info@yourdomain.com</span>
+                            <p><span class="d-block">Phone:</span> <span class="text-black">{{ hotel_contact_info.phone_number }}</span></p>
+                            <p><span class="d-block">Email:</span> <span class="text-black"> {{ hotel_contact_info.email }}</span>
                             </p>
                         </div>
                     </div>
