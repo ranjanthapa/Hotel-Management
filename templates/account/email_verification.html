@@ -1,10 +1,8 @@
 {% autoescape off %}
     Dear {{ name }},
     Thank you for choosing our service, Please confirm your booking either prepaid or confirmation.
-
-{#    Confirmation Link:http://{{ domain }}{% url 'room:confirm_booking' uidb64=uid token=token %}#}
-    Payment Link: {{ payment_url }}
-    domain: {{ domain }}
+    confirmation link: http://{{ domain }}{% url 'room:room_confirmation' uidb64=uid res_uidb64=reservation_uid%}
+    payment link: http://{{ domain }}{% url 'payment:pay' %}
     Thank you!
 
 {% endautoescape %}

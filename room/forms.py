@@ -1,10 +1,6 @@
 from datetime import date
 
 from django import forms
-from django.core.mail import EmailMessage, send_mail
-from django.template.loader import render_to_string
-
-from core.settings import env
 from .models import Room, RoomDetail, Reservation
 from django.forms.widgets import SelectDateWidget, DateInput
 from .exceptions import InvalidDateSelection
@@ -19,7 +15,8 @@ class RoomForm(forms.ModelForm):
 class RoomDetailForm(forms.ModelForm):
     class Meta:
         model = RoomDetail
-        fields = ['room', 'price', 'room_type', 'bed_type', 'availability', 'status', 'amenities']
+        fields = ['room', 'price', 'room_type', 'bed_type', 'availability', 'status', 'amenities', 'user']
+        exclude = ['user']
         # widgets = 
 
 

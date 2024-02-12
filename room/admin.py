@@ -10,7 +10,7 @@ class RoomAdmin(admin.ModelAdmin):
 
 @admin.register(RoomDetail)
 class RoomDetailAdmin(admin.ModelAdmin):
-    list_display = ['room', 'price', 'room_type', 'status', 'availability']
+    list_display = ['room', 'price', 'room_type','bed_type', 'status', 'availability']
     list_editable = ['availability', ]
     ordering = ['price']
     list_filter = ['room_type', 'price', 'availability']
@@ -20,7 +20,7 @@ class RoomDetailAdmin(admin.ModelAdmin):
 @admin.register(Reservation)
 class RoomBookingAdmin(admin.ModelAdmin):
     list_display = ['user', 'name', 'email', 'check_in', 'check_out', 'booking_date', 'updated_date']
-    search_fields = ['user__username']
+    search_fields = ['user__username', 'user__email']
     # ordering = ['room']
 
 
@@ -29,7 +29,7 @@ admin.site.register(RoomImage)
 
 @admin.register(BookingConfirmation)
 class BookingConfirmationAdmin(admin.ModelAdmin):
-    list_display = ['get_full_name', 'get_email', 'room']
+    list_display = ['get_full_name', 'get_email']
     search_fields = ['reservation__user__first_name', 'reservation__phone_number', 'reservation__user__email__iexact']
 
     def get_email(self, obj: BookingConfirmation) -> str:

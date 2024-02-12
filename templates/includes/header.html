@@ -2,7 +2,7 @@
 <header class="site-header js-site-header">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="{% url 'room:home' %}">Sogo Hotel</a></div>
+            <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="{% url 'hotel:home' %}">Sogo Hotel</a></div>
             <div class="col-6 col-lg-8">
 
 
@@ -19,11 +19,11 @@
                             <div class="row full-height align-items-center">
                                 <div class="col-md-6 mx-auto">
                                     <ul class="list-unstyled menu">
-                                        <li class="active"><a href="{% url "room:home" %}">Home</a></li>
-                                        <li><a href="{% url "room:rooms" %}">Rooms</a></li>
-                                        <li><a href="{% url "room:aboutus" %}">About</a></li>
-                                        <li><a href="{% url "room:events" %}">Events</a></li>
-                                        <li><a href="{% url "room:contactus" %}">Contact</a></li>
+                                        <li class="active"><a href="{% url "hotel:home" %}">Home</a></li>
+                                        <li><a href="{% url "hotel:rooms" %}">Rooms</a></li>
+                                        <li><a href="{% url "hotel:about" %}">About</a></li>
+                                        <li><a href="{% url "hotel:events" %}">Events</a></li>
+                                        <li><a href="{% url "hotel:contact" %}">Contact</a></li>
                                         <li><a href="{% url "room:reservation" %}">Reservation</a></li>
                                         {% if not user.is_authenticated %}
 

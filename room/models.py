@@ -63,6 +63,15 @@ class RoomDetail(BaseRoomChoices):
     def __str__(self):
         return f'Room {self.room} detail'
 
+    def save(
+            self, force_insert=False, force_update=False, using=None, update_fields=None
+    ):
+        if self.status == "maintenance":
+            self.availability = False
+        else:
+            self.availability = True
+        super().save()
+
 
 class Reservation(BaseRoomChoices):
     user = models.ForeignKey(Account, on_delete=models.CASCADE, blank=True, null=True)
@@ -85,6 +94,5 @@ class Reservation(BaseRoomChoices):
 #     reserved = models.
 
 class BookingConfirmation(models.Model):
-    reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE, null=True, blank=True)
-    room = models.OneToOneField(Room, on_delete=models.CASCADE, null=True, blank=True)
-
+    reservation = models.ForeignKey(Reservation,on_delete=models.CASCADE, null=True, blank=True)
+    room = models.ManyToManyField(Room, null=True, blank=True)
