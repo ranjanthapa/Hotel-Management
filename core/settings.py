@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'hotel',
     'room',
     'payment',
+    'event',
+    'tinymce',
     "phonenumber_field"
 ]
 
@@ -144,6 +146,22 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-
 STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 600,
+    'width': 900,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'plugins': 'colorpicker autolink lists link image charmap print preview anchor',
+    'toolbar': 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor | removeformat | charmap link image',
+    'toolbar_sticky': True,
+    'toolbar_mode': 'sliding',
+    'menubar': True,
+    'statusbar': True,
+    'resize': 'both',
+    'content_style': 'body { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.6; }',
+    # 'theme': 'modern',
+}

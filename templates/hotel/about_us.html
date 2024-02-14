@@ -70,30 +70,7 @@
     </div>
 
     <!-- END .block-2 -->
-
-    <section class="section slider-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7">
-                    <h2 class="heading" data-aos="fade-up">Photos</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">{{ description }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                        {% for image in banner_images %}
-                            <div class="slider-item">
-                                <a href="{{ image.url }}" data-fancybox="images"
-                                   data-caption="Caption for this image"><img src="{{ image.url }}"
-                                                                              alt="Image placeholder" class="img-fluid"></a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include 'includes/banner_images.html' %}
 
     {% include 'hotel/history_vision_commitement.html' %}
 

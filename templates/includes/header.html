@@ -22,7 +22,7 @@
                                         <li class="active"><a href="{% url "hotel:home" %}">Home</a></li>
                                         <li><a href="{% url "hotel:rooms" %}">Rooms</a></li>
                                         <li><a href="{% url "hotel:about" %}">About</a></li>
-                                        <li><a href="{% url "hotel:events" %}">Events</a></li>
+                                        <li><a href="{% url "event:events" %}">Events</a></li>
                                         <li><a href="{% url "hotel:contact" %}">Contact</a></li>
                                         <li><a href="{% url "room:reservation" %}">Reservation</a></li>
                                         {% if not user.is_authenticated %}

@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, FormView
+
+from event.models import Event
 from room.models import Room
 from .models import Testimonial, BannerImage, History, VisionAndGoal
 from .forms import ContactForm
@@ -12,6 +14,12 @@ from django.db.models import ImageField
 class HomeView(TemplateView):
     template_name = 'home.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        latest_event = Event.objects.order_by('-event_start')[:3]
+        context['latest_event'] = latest_event
+        return context
+
 
 class AboutUsView(TemplateView):
     template_name = 'hotel/about_us.html'
@@ -19,14 +27,6 @@ class AboutUsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['testimonial'] = Testimonial.objects.all()
-        banner_image_instance = BannerImage.objects.first()
-        if banner_image_instance:
-            images = [getattr(banner_image_instance, field.name) for field in BannerImage._meta.fields if
-                      isinstance(field, ImageField)]
-            context['banner_images'] = images
-        else:
-            context['banner_images'] = None
-        context['description'] = getattr(banner_image_instance, "description")
         context['history'] = History.objects.all()
         context['vision_goal'] = VisionAndGoal.objects.all()
         return context
@@ -47,10 +47,6 @@ class ContactUsView(FormView):
         context = super().get_context_data(**kwargs)
         context['form'] = self.form_class
         return context
-
-
-class EventsView(TemplateView):
-    template_name = 'hotel/events.html'
 
 
 class RoomListView(ListView):

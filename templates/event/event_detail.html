@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main-content %}
+    <link rel="stylesheet" href="{% static 'room/css/event_detail.css' %}">
+    <div class="detail-container">
+
+        <div class="header">
+            <p class="title">{{ event.title }}</p>
+            <p class="theme">"{{ event.theme }}"</p>
+        </div>
+        <p class="description">{{ event.body | safe }}</p>
+
+    </div>
+
+{% endblock main-content %}
+
+{{ event }}

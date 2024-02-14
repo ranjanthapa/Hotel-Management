@@ -1,0 +1,60 @@
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+
+}
+.profile-detail{
+    margin-top: 60px;
+}
+
+
+.header{
+    margin-top: 50px;
+}
+
+.title{
+    font-size: 34px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.profile-detail>*{
+    margin: 0;
+    color: #999999;
+}
+
+.profile-img{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.theme{
+    font-size: 20px;
+    color: #999999;
+    text-align: center;
+}
+
+.description{
+    margin-top: 18px;
+    text-align: start;
+    font-size: 18px;
+    font-family: Roboto;
+}
+
+.image-lists{
+    display: grid;
+    grid-template-columns: repeat(3,280px);
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.image-lists>img{
+    height: 280px;
+    width:280px;
+    border-radius: 2%;
+}
