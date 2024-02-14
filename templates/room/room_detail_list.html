@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .room-listing {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .room-info {
+    margin-top: 15px;
+  }
+</style>
+
+<div class="container mt-4">
+  {% for detail in room_details %}
+    <div class="room-listing">
+        <h2>Room Number: {{ detail.room.room_no }}</h2>
+        <p class="room-info">Price: {{ detail.price }}</p>
+        <div id="carouselRoom{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in detail.image.get_images %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.url }}" alt="Room image">
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselRoom{{ forloop.counter }}" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselRoom{{ forloop.counter }}" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

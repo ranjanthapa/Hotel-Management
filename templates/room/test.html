@@ -1,0 +1,41 @@
+{% include "header.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rustico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'room/css/slider.css' %}"> 
+</head>
+<body>
+    <div class="container">
+        {% for detail in room_details %}
+            <div class="room-listing">
+                <a href="{% url 'room_detail' pk=detail.room.pk %}">
+                <div id="carouselRoom{{ forloop.counter }}" class="carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in detail.image.get_images %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image.url }}" alt="Room image">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% comment %} <a class="carousel-control-prev" href="#carouselRoom{{ forloop.counter }}" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselRoom{{ forloop.counter }}" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span> {% endcomment %}
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+<script src="{% static 'room/js/carousel.js' %}"></script> <!-- Externalized JavaScript -->
+</html>

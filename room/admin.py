@@ -30,4 +30,5 @@ admin.site.register(ReviewAndRating)
 admin.site.register(AboutUs)
 admin.site.register(MenuCategory)
 admin.site.register(MenuList)
+admin.site.register(Amenitie)
 

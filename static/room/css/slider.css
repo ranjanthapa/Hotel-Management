@@ -1,0 +1,106 @@
+body {
+    background-color: #F8F8F8; /* Silver-white background */
+    font-family: 'Rustico', sans-serif; /* Rustico font */
+    font-size: 16px;
+}
+
+.room-listing {
+    margin: 20px auto; /* Centers the listing with margin top and bottom */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+    background-color: #fff; /* White background for the listing */
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* Adjusted for 3 slides to be 100% each */
+    transition: transform 2s ease; /* Smooth transition for auto sliding */
+}
+
+.carousel-item {
+    flex: 0 0 33.333%; /* Adjusted for 3 slides to fit in view */
+    display: block; /* Changed to display images */
+}
+
+.carousel-item img {
+    width: 75%;
+    height: 400px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures images cover the area well */
+    border-radius: 5px;
+}
+
+/* Auto sliding */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(-300%); }
+}
+
+.carousel-inner {
+    animation: slide 150s infinite; /* Adjust time as needed */
+}
+
+/* Navigation buttons */
+.carousel-control-prev, .carousel-control-next {
+    font-size: 20px; /* Adjust size */
+    color: #fff; /* Change color */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border-radius: 50%; /* Make them round */
+    width: 40px; /* Set a specific width */
+    height: 40px; /* Set a specific height */
+    align-items: center; /* Center the icon vertically */
+    justify-content: center; /* Center the icon horizontally */
+    display: flex;
+}
+
+.carousel-control-prev span, .carousel-control-next span {
+    display: inline-block;
+}
+
+.container {
+    max-width: 1200px; /* Adjust based on your preference */
+    margin: auto; /* Center the container */
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 150px; /* Smaller height for smaller screens */
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        font-size: 20px; /* Smaller navigation buttons */
+        padding: 5px; /* Reduce padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item img {
+        height: 100px; /* Even smaller height for very small screens */
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        font-size: 16px; /* Further reduce button size */
+        padding: 3px; /* Further reduce padding */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Slightly smaller font on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px; /* Even smaller font on phones */
+    }
+}

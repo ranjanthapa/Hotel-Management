@@ -29,6 +29,11 @@ BED_TYPE = [
     ('king_bed', "King Bed")
 ]
 
+class Amenitie(models.Model):  
+    name = models.CharField(max_length=100, blank=True) 
+
+    def __str__(self):
+        return self.name
 
 class RoomImage(models.Model):
     room = models.OneToOneField(Room, on_delete=models.CASCADE)
@@ -37,7 +42,10 @@ class RoomImage(models.Model):
     image3 = models.ImageField(upload_to='images/room_image')
     image4 = models.ImageField(upload_to='images/room_image')
     image5 = models.ImageField(upload_to='images/room_image')
-
+    
+    def get_images(self):
+        return [self.image1, self.image2, self.image3, self.image4, self.image5]
+    
     def __str__(self):
         return f'Room Number: {self.room}'
 
@@ -50,7 +58,7 @@ class RoomDetail(models.Model):
     bed_type = models.CharField(max_length=30, choices=BED_TYPE, blank=True, null=True)
     availability = models.BooleanField(default=True)
     status = models.CharField(max_length=50, choices=ROOM_STATUS)
-    amenities = models.TextField()
+    amenities = models.ManyToManyField(Amenitie, related_name='rooms')
 
 
 class RoomBooking(models.Model):

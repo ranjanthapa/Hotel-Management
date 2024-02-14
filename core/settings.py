@@ -9,20 +9,20 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-from decouple import config
+# from decouple import config
 import os
 from pathlib import Path
 import environ
 
-# env = environ.Env()
-# environ.Env.read_env()
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-dotenv_path = BASE_DIR / '.env'
-config._load(dotenv_path)
+# dotenv_path = BASE_DIR / '.env'
+# config._load(dotenv_path)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hotel_management_db',
-        'USER': 'admin',
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        # 'PASSWORD': env('DATABASE_PASSWORD'),
+        'NAME': 'hotel_management_dbb',
+        'USER': 'postgres',
+        # 'PASSWORD': config('DATABASE_PASSWORD'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
         # 'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
         'PORT': '5432',

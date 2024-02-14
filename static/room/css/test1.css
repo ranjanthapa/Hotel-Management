@@ -1,0 +1,77 @@
+/* style.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F0F0; /* Silver white background */
+    color: #343a40; /* Slightly softer than pure black for text */
+}
+
+.room-detail {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.room-detail h1, .room-detail h2, .room-detail h3 {
+    color: #FFD700; /* Gold color for headings */
+}
+
+.room-detail img {
+    width: 100%; /* Ensures image stretches to container width */
+    height: 300px; /* Fixed height for all images */
+    object-fit: cover; /* Ensures images cover the area without distorting aspect ratio */
+    margin-top: 20px;
+    border-radius: 5px; /* Optional: adds rounded corners to images */
+}
+
+ul {
+    list-style-type: none; /* Removes bullet points from list */
+    padding: 0;
+}
+
+ul li {
+    background-color: #FFD700; /* Gold background for amenities */
+    color: #000; /* Black text for contrast */
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px; /* Rounded corners for list items */
+}
+
+form {
+    background-color: #FFF;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: 600; /* Makes labels slightly bolder */
+    color: #343a40;
+}
+
+form input[type=number], form input[type=date] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FFD700; /* Gold background for button */
+    color: #000; /* Black text for contrast */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+form button:hover {
+    background-color: #e6c200; /* Slightly darker gold on hover */
+}

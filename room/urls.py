@@ -1,5 +1,7 @@
 from django.urls import path
+from django.conf import settings
 from . import views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
@@ -8,6 +10,7 @@ urlpatterns = [
     path('events/', views.EventsView.as_view(), name='events'),
     path('reservation/', views.ReservationView.as_view(), name='reservation'),
     path('rooms/', views.RoomListView.as_view(), name='rooms'),
-    path('roomdetail/<int:id>/', views.RoomDetailView.as_view(), name='roomdetail'),
+    path('rooms/<str:room_type>/', views.RoomListView.as_view(), name='rooms_by_type'),
+    path('room/detail/<int:pk>/', views.RoomDetailView.as_view(), name='room_detail'),
     path('bookroom/', views.RoomBookView.as_view(), name='bookroom'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

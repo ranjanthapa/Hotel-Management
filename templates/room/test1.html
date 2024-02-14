@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'room/css/test1.css' %}"> 
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <div class="room-detail">
+        <h1>Room Number: {{ roomdetail.room.room_no }}</h1>
+        <p>Price: {{ roomdetail.price }}</p>
+        <!-- Display images and amenities -->
+        {% for image in images %}
+            <img src="{{ image.image1.url }}" alt="Room Image">
+            <!-- Repeat for other images if necessary -->
+        {% endfor %}
+        <h3>Amenities:</h3>
+        <ul>
+            {% for amenity in amenities %}
+                <li>{{ amenity.name }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Book This Room</h2>
+        <form method="post">
+            {% csrf_token %}
+            <!-- Assuming you have a form or inputs for booking details -->
+            <label for="adults">Adults:</label>
+            <input type="number" id="adults" name="adults" min="1" value="1">
+            <label for="children">Children:</label>
+            <input type="number" id="children" name="children" min="0" value="0">
+            <label for="check_in">Check-in:</label>
+            <input type="date" id="check_in" name="check_in">
+            <label for="check_out">Check-out:</label>
+            <input type="date" id="check_out" name="check_out">
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</body>
+</html>
